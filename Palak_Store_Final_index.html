@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palak Store | New Arrivals</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#241b20;background:#fff}
+.top{background:#241b20;color:#fff;text-align:center;padding:9px;font-size:12px}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:5}
+.logo{font:700 30px Georgia}.logo span{color:#a64d67}nav a{margin:0 10px;text-decoration:none;color:#241b20;font-size:14px}
+.cart{padding:10px 16px;border:1px solid #ddd;border-radius:25px;background:#fff}
+.hero{background:linear-gradient(120deg,#fae9ee,#fff);padding:55px 5%}.hero-in{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.kicker{color:#a64d67;font-weight:bold;letter-spacing:2px;font-size:12px}h1{font:700 55px Georgia;margin:14px 0}.hero p{color:#75686d;line-height:1.7}.shop{display:inline-block;background:#241b20;color:#fff;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold}
+.hero img{width:100%;max-height:520px;object-fit:cover;border-radius:20px}
+section{max-width:1200px;margin:auto;padding:55px 5%}.title{text-align:center;margin-bottom:30px}.title h2{font:700 38px Georgia;margin:0 0 8px}.title p{color:#75686d}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{border:1px solid #eee;border-radius:15px;overflow:hidden;box-shadow:0 6px 22px #24151b12}.card img{width:100%;height:340px;object-fit:cover}.info{padding:16px}.tag{color:#a64d67;font-size:11px;font-weight:bold}.name{font:700 20px Georgia;margin:7px 0}.desc{font-size:13px;color:#75686d;min-height:38px}.price{font-size:21px;font-weight:bold;margin:13px 0}.buttons{display:flex;gap:8px}.add,.wa{flex:1;padding:12px;border-radius:8px;font-weight:bold}.add{border:0;background:#241b20;color:#fff}.wa{border:1px solid #ddd;background:#fff}
+.about{background:#faeef1;max-width:none;text-align:center}.about-in{max-width:1000px;margin:auto;padding:50px 5%}.about h2{font:700 35px Georgia}.about p{color:#75686d;line-height:1.8}
+footer{background:#241b20;color:#fff;text-align:center;padding:35px}.phone{color:#f0c8d3;margin-top:8px}
+.drawer{position:fixed;right:-430px;top:0;width:min(430px,100%);height:100%;background:#fff;z-index:20;padding:22px;box-shadow:-10px 0 35px #0004;transition:.3s;overflow:auto}.drawer.open{right:0}.overlay{display:none;position:fixed;inset:0;background:#0005;z-index:10}.overlay.open{display:block}.head{display:flex;justify-content:space-between}.close{border:0;border-radius:50%;width:35px;height:35px}.item{display:flex;gap:10px;padding:14px 0;border-bottom:1px solid #eee}.item img{width:65px;height:65px;object-fit:cover;border-radius:8px}.total{font-size:20px;font-weight:bold;margin:20px 0}.order{display:block;text-align:center;background:#25d366;color:#fff;padding:14px;border-radius:8px;text-decoration:none;font-weight:bold}
+@media(max-width:800px){.hero-in{grid-template-columns:1fr}h1{font-size:43px}.grid{grid-template-columns:repeat(2,1fr)}nav a{display:none}.card img{height:270px}}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}.card img{height:240px}.buttons{flex-direction:column}.name{font-size:17px}}
+</style></head><body>
+<div class="top">🌸 SUMMER COLLECTION 2K26 • PURE LAWN 3PC EMBROIDERED 🌸</div>
+<nav><div class="logo">Palak <span>Store</span></div><div><a href="#new">New Arrivals</a><a href="#about">About</a></div><button class="cart" onclick="openCart()">🛍 Cart (<span id="count">0</span>)</button></nav>
+<div class="hero"><div class="hero-in"><div><div class="kicker">PALAK STORE • LADIES COLLECTION</div><h1>Elegant summer styles, made for you.</h1><p>Premium 90/70 lawn, beautiful embroidery and stylish 3-piece suits for a modern wardrobe.</p><a class="shop" href="#new">Shop New Arrivals →</a></div><img src="product-1.jpg" alt="Palak Store"></div></div>
+<section id="new"><div class="title"><h2>New Arrivals</h2><p>PURE LAWN 3PC EMBROIDERED COLLECTION • <b>Rs. 4,500</b></p></div><div class="grid" id="products"></div></section>
+<div class="about" id="about"><div class="about-in"><h2>Premium Quality • Beautiful Style</h2><p>Front heavy embroidered, sleeves heavy embroidered, premium trouser and digital printed lawn voil / embroidered dupatta. 100% Pure 90/70 Lawn guaranteed.</p></div></div>
+<footer><b style="font:700 28px Georgia">Palak Store</b><div class="phone">WhatsApp: 03106449975</div><p>© 2026 Palak Store</p></footer>
+<div class="overlay" id="overlay" onclick="closeCart()"></div><div class="drawer" id="drawer"><div class="head"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><div class="total">Total: Rs. <span id="total">0</span></div><a class="order" id="order" target="_blank">Order on WhatsApp</a><p style="text-align:center;color:#777;font-size:12px">Cash on Delivery is not available.</p></div>
+<script>
+const phone="923106449975",price=4500;
+const products=[["URGE • Black Floral","product-1.jpg"],["Jazmin • Black & White","product-2.jpg"],["COCO • Navy Blue","product-3.jpg"],["COCO • Black & White","product-4.jpg"],["COCO • Maroon","product-5.jpg"],["URGE • Burgundy","product-6.jpg"],["Libaas • Black & Red","product-7.jpg"],["Libaas • Wine","product-8.jpg"],["Libaas • Royal Blue","product-9.jpg"]];
+let cart=[];
+document.getElementById("products").innerHTML=products.map((p,i)=>`<div class="card"><img src="${p[1]}" alt="${p[0]}"><div class="info"><div class="tag">NEW ARRIVAL • 3PC</div><div class="name">${p[0]}</div><div class="desc">Pure 90/70 lawn • heavy embroidery • premium quality</div><div class="price">Rs. 4,500</div><div class="buttons"><button class="add" onclick="add(${i})">Add to Cart</button><button class="wa" onclick="quick(${i})">WhatsApp</button></div></div></div>`).join("");
+function add(i){let x=cart.find(a=>a.i==i);x?x.q++:cart.push({i,q:1});update();openCart()}
+function remove(i){cart=cart.filter(a=>a.i!=i);update()}
+function update(){let n=cart.reduce((a,b)=>a+b.q,0),t=n*price;document.getElementById("count").textContent=n;document.getElementById("total").textContent=t.toLocaleString();document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>`<div class="item"><img src="${products[x.i][1]}"><div><b>${products[x.i][0]}</b><br>Rs. 4,500 × ${x.q}<br><button onclick="remove(${x.i})">Remove</button></div></div>`).join(""):"<p style='text-align:center;padding:30px;color:#777'>Your cart is empty.</p>";let m="Assalam o Alaikum, I want to order from Palak Store:%0A"+cart.map(x=>products[x.i][0]+" x "+x.q).join("%0A")+"%0A%0ATotal: Rs. "+t.toLocaleString();document.getElementById("order").href="https://wa.me/"+phone+"?text="+m}
+function quick(i){window.open("https://wa.me/"+phone+"?text="+encodeURIComponent("Assalam o Alaikum, I want to order "+products[i][0]+" from Palak Store. Price: Rs. 4,500."))}
+function openCart(){drawer.classList.add("open");overlay.classList.add("open")}function closeCart(){drawer.classList.remove("open");overlay.classList.remove("open")}update();
+</script></body></html>
